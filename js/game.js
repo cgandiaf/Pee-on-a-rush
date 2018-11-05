@@ -1,9 +1,12 @@
+
+
 function Game() {
   this.canvas = document.querySelector("canvas")
   this.ctx = this.canvas.getContext("2d");
   this.fps = 60;
   this.player = new Player(this);
   this.room = new Room(this);
+  this.shadow = new Shadow(this, rooms[0].name, rooms[0].doors);
   
   this.framesCounter = 0;
   this.score = 0;
@@ -17,10 +20,17 @@ Game.prototype.start = function () {
     this.ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     this.room.drawRoom();
-    this.room.drawDoor();
-    //this.player.drawPlayer();
-    console.log(this.player.checkCollisionDoor())
-
+    //this.room.drawDoor();
+    //this.shadow.drawShadow();
+    (this.shadow.checkCollisionDoor("black")) ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
+//     console.log(this.shadow.checkCollisionDoor("black"));
+// if (this.shadow.checkCollisionDoor("black")){
+//   console.log("verde");
+//   this.shadow.drawShadowOn();
+// } else {
+//   console.log("naranjichiii");
+//   this.shadow.drawShadow();
+// } 
     //   this.room.drawDoor();
 
     //   //muevo

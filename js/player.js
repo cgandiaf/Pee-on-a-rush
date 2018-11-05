@@ -18,22 +18,7 @@ function Player(game) {
 
 };
 
-Player.prototype.checkCollisionDoor = function () {
-  //return true si hay colisión con la puerta
-  //return this.obstacles.some(function(obstacle) {
-  //   return (
-  //     (this.x + 3) >= 400 &&
-  //      430 >= this.x &&
-  //      (this.y+3) >= 297 &&
-  //     327 >=this.y
 
-  //   );
-  // }.bind(this));
-  if ((this.x + 3) >= 400 &&
-  430 >= this.x &&
-  (this.y+3) >= 297 &&
- 327 >=this.y) return true
-};
 
 Player.prototype.setListeners = function () {
   document.onkeydown = function (event) {
@@ -50,19 +35,15 @@ Player.prototype.setListeners = function () {
       case LEFT_KEY:
         //if (this.x > this.game.room.leftLimit) this.x -= this.v;
         this.x -= this.v;
-        if (this.x < this.game.canvas.width) this.x = 0;
+        if (this.x < -1500) this.x = 0;
         break;
       case RIGHT_KEY:
         //if (this.x < this.game.room.rightLimit) this.x += this.v;
         this.x += this.v;
-        if (this.x < -this.game.canvas.width) this.x = 0;
+        if (this.x > 1500) this.x = 0;
         break;
     }
     
   }.bind(this);
 };
 
-Player.prototype.drawPlayer = function () {
-  this.game.ctx.fillStyle = "orange";
-  this.game.ctx.fillRect(this.x, this.y, 3, 3);
-};
