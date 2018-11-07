@@ -48,6 +48,7 @@ rooms = [
     {
         name: "green",
         src: "images/g1.png",
+        key: true,
         doors: [
             {
                 name: "black",

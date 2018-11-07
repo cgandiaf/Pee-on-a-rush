@@ -26,8 +26,12 @@ Player.prototype.setListeners = function () {
 
     switch (event.keyCode) {
       case TOP_KEY:
-      if (this.game.gameState === "tutorial"){
-
+      console.log(this.game.gameState);
+      //console.log()
+      if (this.game.gameState === "tutorial" && this.game.tutorial.checkCollisionDoor()){
+        //Activamos modo juego e instanciamos room
+        this.game.gameState = "game"
+        this.game.room = new Room(this.game);
       }else{
       var doorNumber = this.game.shadow.checkCollisionDoor(this.game.room.roomId) ;
       //console.log(doorNumber);

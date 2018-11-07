@@ -6,9 +6,10 @@ function Room(game, name, doors) {
     this.height = 600; //CANVAS
 
     //Cargo la primera habitación por defecto
-    this.roomId = "main";
+    //Podría hacerlo con un random
+    this.roomId = "black";
     this.imgRoom = new Image();
-    this.imgRoom.src = "images/main.png";
+    this.imgRoom.src = "images/b3.png";
 }
 
 
@@ -26,4 +27,9 @@ Room.prototype.drawRoom = function () {
     this.game.ctx.drawImage(this.imgRoom, this.game.player.x - 1500, this.game.player.y, this.width, (this.height), 0, 0, this.game.canvas.width, this.game.canvas.height);
     this.game.ctx.drawImage(this.imgRoom, this.game.player.x, this.game.player.y, this.width, (this.height), 0, 0, this.game.canvas.width, this.game.canvas.height);
     this.game.ctx.drawImage(this.imgRoom, this.game.player.x + 1500, this.game.player.y, this.width, (this.height), 0, 0, this.game.canvas.width, this.game.canvas.height);
+}
+Room.prototype.hasKey = function(){
+    return rooms.find(function (room) {
+        return room.name === this.roomId 
+    }.bind(this)).hasOwnProperty("key");
 }

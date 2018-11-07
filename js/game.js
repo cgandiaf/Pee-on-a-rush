@@ -7,6 +7,7 @@ function Game() {
   this.tutorial = new Tutorial(this); //la primera cargar la negra no sé como 
   this.shadow = new Shadow(this, rooms[0].name, rooms[0].doors);
   this.lifeBar = new LifeBar(this);
+  this.key = new Key (this);
   this.time = 0; //reset
   this.totalTime = 100; // de momento no me hace falta
   this.score = 0;
@@ -28,6 +29,7 @@ Game.prototype.start = function () {
       //console.log(this.tutorial.checkCollisionDoor());
       (this.tutorial.checkCollisionDoor()) ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
     } else {
+
       //Meter en una funcion Game draw()
       this.room.drawRoom();
       //Pintar la sombra dependiendo de la colisión con la puerta
@@ -39,12 +41,15 @@ Game.prototype.start = function () {
         this.lifeBar.drawLifeBar(this.time);
         if (this.time === 100) {
           console.log(this.time);
-          this.gameOver();
-          //reset y pantalla principal 
+          this.gameover = new GameOver(this);
         }
       }
-      //}
-    }
+      //Pintar la llave si la hay 
+      if(this.room.hasKey()){
+          this.key.drawKey();
+      }
+
+    }//Fin modo game
 
   }.bind(this), 1000 / this.fps);
 };
@@ -58,18 +63,7 @@ Game.prototype.stop = function () {
   clearInterval(this.intervalID);
 };
 
-Game.prototype.gameOver = function () {
-  this.stop();
-  this.clear();
-  //crear gif en el html
-  //   setTimeout(function() {
-  //     //limpiarlo
-  // }, 2000);
-  // this.start();
-  this.showTutorial()
 
-
-};
 
 // Game.prototype.reset = function() {
 //   this.background = new Background(this);
