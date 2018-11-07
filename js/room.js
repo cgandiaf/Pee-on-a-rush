@@ -6,9 +6,9 @@ function Room(game, name, doors) {
     this.height = 600; //CANVAS
 
     //Cargo la primera habitación por defecto
-    this.roomId = "black";
+    this.roomId = "main";
     this.imgRoom = new Image();
-    this.imgRoom.src = "images/b3.png";
+    this.imgRoom.src = "images/main.png";
 }
 
 

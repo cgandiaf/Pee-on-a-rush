@@ -13,7 +13,6 @@ function LifeBar(game) {
   LifeBar.prototype.drawLifeBar = function (time) {
         this.ctx.clearRect(0, 0, this.lifeBarCanvas.width, this.lifeBarCanvas.height);
         this.ctx.fillStyle = "yellow";
-        console.log(time);
       
     if(time >= 90){
         this.ctx.fillStyle = "rgba(0, 0, 0, 0.2)";

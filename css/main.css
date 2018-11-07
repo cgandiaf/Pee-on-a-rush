@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "Mofo";
+    src: url(BadMofo.ttf) format("truetype");
+}
+h1 {
+    font-family: "Mofo";
+    color: pink;
+}

@@ -26,12 +26,17 @@ Player.prototype.setListeners = function () {
 
     switch (event.keyCode) {
       case TOP_KEY:
+      if (this.game.gameState === "tutorial"){
+
+      }else{
       var doorNumber = this.game.shadow.checkCollisionDoor(this.game.room.roomId) ;
       //console.log(doorNumber);
-       if(typeof(doorNumber) === "number")  this.game.room.roomChange(doorNumber);
+       if(typeof(doorNumber) === "number")  {
+        this.game.room.roomChange(doorNumber);}
        if (this.game.room.roomId === "wc") {
           this.game.youWin();
        }
+      }
         // this.y -= this.v;
         //if (this.game.shadow.checkCollisionDoor(this.game.room.roomId)) this.game.room.roomGeneration(roomId, doorNumber);
         //   break;
