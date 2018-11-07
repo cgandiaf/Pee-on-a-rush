@@ -30,8 +30,7 @@ Player.prototype.setListeners = function () {
       //console.log(doorNumber);
        if(typeof(doorNumber) === "number")  this.game.room.roomChange(doorNumber);
        if (this.game.room.roomId === "wc") {
-         this.game.stop();
-          this.game.showWin();
+          this.game.youWin();
        }
         // this.y -= this.v;
         //if (this.game.shadow.checkCollisionDoor(this.game.room.roomId)) this.game.room.roomGeneration(roomId, doorNumber);
