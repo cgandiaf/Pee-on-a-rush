@@ -25,13 +25,20 @@ Player.prototype.setListeners = function () {
     event.preventDefault();
 
     switch (event.keyCode) {
-      // case TOP_KEY:
-      // this.y -= this.v;
-      //   //if (this.y > this.game.room.topLimit || this.checkCollisionDoor()) this.y -= this.v;
-      //   break;
-      // case DOWN_KEY:
-      //   if (this.y < this.game.room.downLimit) this.y += this.v;
-      //   break;
+      case TOP_KEY:
+      var doorNumber = this.game.shadow.checkCollisionDoor(this.game.room.roomId) ;
+      //console.log(doorNumber);
+       if(typeof(doorNumber) === "number")  this.game.room.roomChange(doorNumber);
+       if (this.game.room.roomId === "wc") {
+         this.game.stop();
+          this.game.showWin();
+       }
+        // this.y -= this.v;
+        //if (this.game.shadow.checkCollisionDoor(this.game.room.roomId)) this.game.room.roomGeneration(roomId, doorNumber);
+        //   break;
+        // case DOWN_KEY:
+        //   if (this.y < this.game.room.downLimit) this.y += this.v;
+        break;
       case LEFT_KEY:
         //if (this.x > this.game.room.leftLimit) this.x -= this.v;
         this.x -= this.v;
@@ -43,7 +50,7 @@ Player.prototype.setListeners = function () {
         if (this.x > 1500) this.x = 0;
         break;
     }
-    
+
   }.bind(this);
 };
 
