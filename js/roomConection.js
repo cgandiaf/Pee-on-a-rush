@@ -1,59 +1,59 @@
 rooms = [
     {
-        name: "black",
-        src: "images/b3.png",
+        name: "central",
+        src: "images/central.png",
         doors: [{
             name: "yellow",
-            leftLimit: 174,
-            rigthLimit: 362
+            leftLimit: 155,
+            rigthLimit: 280
         },
         {
             name: "pink",
-            leftLimit: 684,
-            rigthLimit: 872
+            leftLimit: 800,
+            rigthLimit: 930
         },
         {
             name: "green",
-            leftLimit: 1166,
-            rigthLimit: 1354
+            leftLimit: 1185,
+            rigthLimit: 1315
         }]
     },
 
     {
         name: "yellow",
-        src: "images/y2.png",
+        src: "images/yellow.png",
         doors: [{
             name: "wc",
-            leftLimit: 684,
-            rigthLimit: 872
+            leftLimit: 695,
+            rigthLimit: 825
         },
         {
-            name: "black",
-            leftLimit: 1166,
-            rigthLimit: 1354
+            name: "central",
+            leftLimit: 1200,
+            rigthLimit: 1330
         }]
     },
 
     {
         name: "pink",
-        src: "images/p1.png",
+        src: "images/pink.png",
         doors: [
             {
-                name: "black",
-                leftLimit: 1166,
-                rigthLimit: 1354
+                name: "central",
+                leftLimit: 960,
+                rigthLimit: 1090
             }]
     },
 
     {
         name: "green",
-        src: "images/g1.png",
+        src: "images/green.png",
         key: true,
         doors: [
             {
-                name: "black",
-                leftLimit: 1166,
-                rigthLimit: 1354
+                name: "central",
+                leftLimit: 960,
+                rigthLimit: 1090
             }]
     },
 
@@ -62,9 +62,9 @@ rooms = [
         src: "images/wc.png",
         doors: [
             {
-                name: "black",
-                leftLimit: 1166,
-                rigthLimit: 1354
+                name: "",
+                leftLimit: 0,
+                rigthLimit: 0
             }]
     }
 ]

@@ -4,7 +4,7 @@ function Tutorial (game){
         //this.height = 600; //CANVAS
  
         this.imgTutorial = new Image();
-        this.imgTutorial.src = "images/main.png";
+        this.imgTutorial.src = "images/tutorial.png";
         this.leftLimit = 684;
         this.rigthLimit = 872;
 

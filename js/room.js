@@ -7,9 +7,9 @@ function Room(game, name, doors) {
 
     //Cargo la primera habitación por defecto
     //Podría hacerlo con un random
-    this.roomId = "black";
+    this.roomId = "central";
     this.imgRoom = new Image();
-    this.imgRoom.src = "images/b3.png";
+    this.imgRoom.src = "images/central.png";
 }
 
 
