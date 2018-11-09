@@ -22,7 +22,8 @@ Room.prototype.roomChange = function (doorNumber) {
     }.bind(this));
     this.roomId = newRoom.name;
     this.imgRoom.src = newRoom.src;
-    console.log(this.imgRoom.width);
+    ///Que empiece desde la posicion inicial
+    this.game.player.x = 0;
 }
 
 Room.prototype.drawRoom = function () {

@@ -54,6 +54,7 @@ Player.prototype.setListeners = function () {
           }
 
           if (typeof (doorNumber) === "number") { //Si es en otra room cambiamos escenario
+            this.x = 0;
             this.game.room.roomChange(doorNumber);
           }
         }

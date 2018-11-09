@@ -51,17 +51,19 @@ Shadow.prototype.checkCollisionDoor = function (roomId) {
 
     //Cuando haya colisión devolver el número de la puerta donde ha ocurrido
     this.currentDoors.forEach(function (door, doorNumber) {
+        console.log("posicion player:", this.game.player.x)
+        console.log("posicion sombra:", this.x)
         //console.log(this.game.player.x + this.x + "mayor q left", this.game.player.x + this.x + this.width/2 + "menor q rigth")
         if(this.game.player.x > 0){
             if ((this.game.player.x + this.x) >= door.leftLimit 
-                && door.rigthLimit >= this.game.player.x + this.x + this.width) 
+                && door.rigthLimit >= (this.game.player.x + this.x + this.width)) //Por aqui nunca pasa
                 {
              room = doorNumber;
             }  
         } else {
             //.log("desplazamiento en negativo"+ this.game.player.x )
-            if ((Math.abs(this.game.player.x + this.x )) >= 1500 - door.leftLimit 
-        && door.rigthLimit >= Math.abs(this.x - this.width + this.game.player.x)) {
+            if ((1500 + this.game.player.x + this.x) >= door.leftLimit //Por aqui nunca pasa
+        && door.rigthLimit >= (1500 + this.game.player.x + this.x + this.width )) {
              room = doorNumber;
             }  
         }
