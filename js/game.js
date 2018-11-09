@@ -47,7 +47,7 @@ Game.prototype.start = function () {
       (typeof (this.shadow.checkCollisionDoor(this.room.roomId)) === "number") ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
       
       //controlamos la velocidad de la lifeBar  
-      if (this.framesCounter % 1000 === 0) { //10
+      if (this.framesCounter % 10 === 0) { //10
         this.time++;
         this.lifeBar.drawLifeBar(this.time);
         if (this.time === 100) {

@@ -47,7 +47,9 @@ Player.prototype.setListeners = function () {
           //Comprueba la colisión y devuelve el número de la puerta donde hay colision  
           var doorNumber = this.game.shadow.checkCollisionDoor(this.game.room.roomId);
 
-          if (this.game.room.roomId === "wc" && this.key) { //Si es el WC y tienes la llave WIN
+
+          if (this.game.room.roomId === "yellow" && doorNumber === 0 && this.key) { //Si es el WC y tienes la llave WIN
+            console.log("entra en win pero no hace nada")
             this.game.youWin();
           }
 

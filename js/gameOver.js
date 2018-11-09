@@ -1,17 +1,27 @@
 function GameOver(game){
     this.game = game;
     this.img = new Image();
-    this.img.src= "images/sprite.png";
-    this.img.frames = 5;
-    this.img.frameIndex = 0;
+    
+    //this.img.frames = 5;
+    //this.img.frameIndex = 0;
     this.showGameOver();
     this.fps = 60; //Tambien lo puedo coger de game
 }
 
 GameOver.prototype.showGameOver = function () {
     this.game.stop();
+    //debugger
     this.game.clear();
+
     this.drawGameOver();
+    this.frameCounter = 0;
+
+    //debugger
+
+    //this.cuerpo = document.getElementById("cuerpo");
+    //this.cuerpo = document.createElement("IMG");
+
+    //$('#gif').append().html('<img src = "https://media.giphy.com/media/26xBtzUkiEzHRxA3e/giphy.mp4"');
     
     //this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
     //crear gif en el html
@@ -23,22 +33,21 @@ GameOver.prototype.showGameOver = function () {
   
   };
   GameOver.prototype.drawGameOver = function () {
+
+    debugger
       setInterval(function(){
-        this.game.ctx.drawImage(
-            this.img,
-            this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
-            0,
-            Math.floor(this.img.width / this.img.frames),
-            this.img.height,
-            this.x,
-            this.y,
-            this.w,
-            this.h
-          );
+        //${this.frameCounter}
+
+        this.img.src= `images/gifGameOver/0.png`;
+        this.game.ctx.drawImage(this.img,0,0);
+        this.frameCounter++;
+
+        if(this.frameCounter ===30) clearInterval();
+
         
-          this.animateImg();
+        
       }.bind(this), 1000 / this.fps);
-      clearInterval();
+      
   }
 
   GameOver.prototype.animateImg = function() {
