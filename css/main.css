@@ -10,7 +10,8 @@ h1 {
 body {
     background-color: pink;
     display: flex;
-       justify-content: center;
+    justify-content: center;
+    align-content: center;
 
 }
 .game {
