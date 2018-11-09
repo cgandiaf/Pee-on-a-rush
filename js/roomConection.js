@@ -4,33 +4,29 @@ rooms = [
         src: "images/central.png",
         doors: [{
             name: "yellow",
-            leftLimit: 155,
-            rigthLimit: 280
+            leftLimit: 110,
+            rigthLimit: 320
         },
         {
             name: "pink",
-            leftLimit: 800,
-            rigthLimit: 930
+            leftLimit: 760,
+            rigthLimit: 970
         },
         {
             name: "green",
-            leftLimit: 1185,
-            rigthLimit: 1315
+            leftLimit: 1150,
+            rigthLimit: 1340
         }]
     },
 
     {
         name: "yellow",
         src: "images/yellow.png",
-        doors: [{
-            name: "wc",
-            leftLimit: 695,
-            rigthLimit: 825
-        },
+        doors: [
         {
             name: "central",
-            leftLimit: 1200,
-            rigthLimit: 1330
+            leftLimit: 1160,
+            rigthLimit: 1370
         }]
     },
 
@@ -40,8 +36,8 @@ rooms = [
         doors: [
             {
                 name: "central",
-                leftLimit: 960,
-                rigthLimit: 1090
+                leftLimit: 920,
+                rigthLimit: 1130
             }]
     },
 
@@ -52,8 +48,8 @@ rooms = [
         doors: [
             {
                 name: "central",
-                leftLimit: 960,
-                rigthLimit: 1090
+                leftLimit: 920,
+                rigthLimit: 1130
             }]
     },
 
@@ -68,3 +64,11 @@ rooms = [
             }]
     }
 ]
+
+wcDoor = 
+    {
+        name: "wc",
+        leftLimit: 655,
+        rigthLimit: 855
+    }
+

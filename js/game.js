@@ -13,7 +13,7 @@ function Game() {
   this.score = 0;
   this.framesCounter = 0;
   this.mainOut++; //registro para comenzar con lifeBar
-  this.gameState = "tutorial"
+  this.gameMode = "tutorial"
   this.deathTime = 180; //segundos
   this.lifeBar.drawLifeBar(this.time);
 }
@@ -23,30 +23,55 @@ Game.prototype.start = function () {
 
     this.framesCounter++;
     this.clear();
+    
 
-    if (this.gameState === "tutorial") {
+    if (this.gameMode === "tutorial") {
       this.tutorial.showTutorial();
       //console.log(this.tutorial.checkCollisionDoor());
+      if(this.tutorial.checkCollisionDoor()){
+        // debugger
+      }
+      //console.log(this.tutorial.checkCollisionDoor());
+      //this.shadow.drawShadow(); //Quitar cuando arregle los sprites
       (this.tutorial.checkCollisionDoor()) ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
+    
     } else {
 
       //Meter en una funcion Game draw()
       this.room.drawRoom();
+
+
+      //PINTAR SOMBRA CON SUS INTERACCIONES  ---PUERTA---KEY---
       //Pintar la sombra dependiendo de la colisión con la puerta
+      //this.shadow.drawShadow();
       (typeof (this.shadow.checkCollisionDoor(this.room.roomId)) === "number") ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
       
-      //controlamos la velocidad de la lifeBar 
-      if (this.framesCounter % 10 === 0) {
+      //controlamos la velocidad de la lifeBar  
+      if (this.framesCounter % 1000 === 0) { //10
         this.time++;
         this.lifeBar.drawLifeBar(this.time);
         if (this.time === 100) {
-          console.log(this.time);
+          //console.log(this.time);
           this.gameover = new GameOver(this);
         }
       }
-      //Pintar la llave si la hay 
-      if(this.room.hasKey()){
+      //Si hay llave
+      if(this.room.hasKey() && !this.player.key){
           this.key.drawKey();
+          //console.log((this.shadow.checkCollisionKey()));
+
+          // (this.shadow.checkCollisionKey()) ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
+          if(this.shadow.checkCollisionKey())
+            //this.shadow.drawShadowOn();
+            
+            this.key.drawKeyOn();
+            //else
+
+            
+           
+          //else {
+          //   this.shadow.drawShadow();
+          // }
       }
 
     }//Fin modo game

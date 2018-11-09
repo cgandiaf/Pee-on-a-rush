@@ -5,8 +5,8 @@ function Tutorial (game){
  
         this.imgTutorial = new Image();
         this.imgTutorial.src = "images/tutorial.png";
-        this.leftLimit = 684;
-        this.rigthLimit = 872;
+        this.leftLimit = 710;
+        this.rigthLimit = 900;
 
         //this.x = 400 - 40;
 }
@@ -19,6 +19,15 @@ Tutorial.prototype.showTutorial = function(){
 }
 Tutorial.prototype.checkCollisionDoor = function () {
 
-    return ((Math.abs(this.game.shadow.x + this.game.player.x)) >= this.leftLimit 
-    && this.rigthLimit >= Math.abs(this.game.shadow.x + this.game.shadow.width + this.game.player.x))
+    if (this.game.player.x > 0){
+        return (this.game.player.x + this.game.shadow.x) >= this.leftLimit 
+        && (this.game.player.x + this.game.shadow.x + this.game.shadow.imgShadow.width/2) <= this.rigthLimit 
+    }else {
+        return Math.abs(this.game.player.x + this.game.shadow.x) >= this.leftLimit 
+        && Math.abs(this.game.player.x + this.game.shadow.x + this.game.shadow.imgShadow.width/2) <= this.rigthLimit 
+    }
+    
+
+    // return (this.game.shadow.x + this.game.player.x) >= this.leftLimit 
+    // && this.rigthLimit >= (this.game.shadow.x + this.game.shadow.width + this.game.player.x)
 }

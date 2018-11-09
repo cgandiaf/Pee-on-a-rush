@@ -10,6 +10,7 @@ function Room(game, name, doors) {
     this.roomId = "central";
     this.imgRoom = new Image();
     this.imgRoom.src = "images/central.png";
+    console.log(this.imgRoom.width);
 }
 
 
@@ -21,6 +22,7 @@ Room.prototype.roomChange = function (doorNumber) {
     }.bind(this));
     this.roomId = newRoom.name;
     this.imgRoom.src = newRoom.src;
+    console.log(this.imgRoom.width);
 }
 
 Room.prototype.drawRoom = function () {
