@@ -6,6 +6,9 @@ function GameOver(game){
     //this.img.frameIndex = 0;
     this.showGameOver();
     this.fps = 60; //Tambien lo puedo coger de game
+    //this.srcArray = []
+    this.frameCounter = 0;
+    this.frameFinal = 30;
 }
 
 GameOver.prototype.showGameOver = function () {
@@ -13,49 +16,39 @@ GameOver.prototype.showGameOver = function () {
     //debugger
     this.game.clear();
 
-    this.drawGameOver();
-    this.frameCounter = 0;
-
-    //debugger
-
-    //this.cuerpo = document.getElementById("cuerpo");
-    //this.cuerpo = document.createElement("IMG");
-
-    //$('#gif').append().html('<img src = "https://media.giphy.com/media/26xBtzUkiEzHRxA3e/giphy.mp4"');
+    //this.drawGameOver();
+    document.querySelectorAll("canvas").forEach(function(canvas){
+      canvas.classList.add("off");
+    })
+    document.querySelector(".gameOver").classList.remove("off");
+    document.querySelector("button").classList.remove("off");
+  
+  };
+  // GameOver.prototype.drawGameOver = function () {
+  //   this.frameCounter++;
     
-    //this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
-    //crear gif en el html
-    //   setTimeout(function() {
-    //     //limpiarlo
-    // }, 2000);
-    // this.start();
-    //this.showTutorial()
-  
-  };
-  GameOver.prototype.drawGameOver = function () {
+  //     setInterval(function(){
+  //       //
 
-    debugger
-      setInterval(function(){
-        //${this.frameCounter}
+  //       if (this.framesCounter % 10 === 0) {
+  //       this.img.src= `images/gifGameOver/${this.frameCounter}.gif`;
+  //       this.game.ctx.drawImage(this.img,0,0);
+  //       this.frameFinal--;
+  //       //debugger
+  //       }
 
-        this.img.src= `images/gifGameOver/0.png`;
-        this.game.ctx.drawImage(this.img,0,0);
-        this.frameCounter++;
+  //       if(this.frameFinal === 0) clearInterval();
 
-        if(this.frameCounter ===30) clearInterval();
-
-        
-        
-      }.bind(this), 1000 / this.fps);
+  //     }.bind(this), 1000 / this.fps);
       
-  }
+  // }
 
-  GameOver.prototype.animateImg = function() {
-    // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-    if (this.game.framesCounter % 6 === 0) {
-      this.img.frameIndex += 1;
+  // GameOver.prototype.animateImg = function() {
+  //   // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
+  //   if (this.game.framesCounter % 6 === 0) {
+  //     this.img.frameIndex += 1;
   
-      // Si el frame es el último, se vuelve al primero
-      if (this.img.frameIndex > 4) this.img.frameIndex = 0;
-    }
-  };
+  //     // Si el frame es el último, se vuelve al primero
+  //     if (this.img.frameIndex > 4) this.img.frameIndex = 0;
+  //   }
+  // };

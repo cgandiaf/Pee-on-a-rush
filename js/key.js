@@ -4,7 +4,7 @@ function Key (game){
     this.imgKey.src = "images/key.png";
 
     this.x = 300;//Math.random() * 1500;
-    this.y = 400;//Math.random() * 100;
+    this.y = 300;//Math.random() * 100;
 
     this.width = this.imgKey.width * 0.2; //CANVAS
     this.height = this.imgKey.height * 0.2; //CANVAS

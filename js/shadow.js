@@ -1,7 +1,7 @@
 function Shadow(game, name, doors) {
     this.game = game;
     this.x = 100;
-    this.y = 200;
+    this.y = 150;
     //this.x = game.canvas.width/2 - this.width;
     //this.y = game.canvas.height/2;
     
@@ -83,9 +83,9 @@ Shadow.prototype.checkCollisionDoor = function (roomId) {
 
 
 Shadow.prototype.drawShadowOn = function () {
-    var w = 127;
-    var h = 470;
-    var y = 50;
+    var w = 140;
+    var h = 670;
+    var y = -30;
     this.imgShadow.src = "images/s2.png"; 
     this.game.ctx.drawImage(this.imgShadow,this.x, y, w, h);
 };

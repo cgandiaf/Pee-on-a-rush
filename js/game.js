@@ -47,7 +47,7 @@ Game.prototype.start = function () {
       (typeof (this.shadow.checkCollisionDoor(this.room.roomId)) === "number") ? this.shadow.drawShadowOn() : this.shadow.drawShadow();
       
       //controlamos la velocidad de la lifeBar  
-      if (this.framesCounter % 10 === 0) { //10
+      if (this.framesCounter % 40 === 0) { //10
         this.time++;
         this.lifeBar.drawLifeBar(this.time);
         if (this.time === 100) {
@@ -100,17 +100,15 @@ Game.prototype.stop = function () {
 
 
 Game.prototype.youWin = function () {
-  console.log("FIN: you win!")
-  this.stop();
-  this.clear();
-  //this.ctx.beginPath();
-  this.ctx.fillStyle = 'red';
-  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-  this.ctx.font = "40px Arial";
-  this.ctx.fillStyle = "green";
-  this.ctx.textAlign = "center";
-  this.ctx.fillText("WIIIIN!!!!", this.canvas.width / 2, 250);
-  //
+    this.stop();
+    this.clear();
+
+    document.querySelectorAll("canvas").forEach(function(canvas){
+      canvas.classList.add("off");
+    })
+    document.querySelector(".win").classList.remove("off");
+    document.querySelector("button").classList.remove("off");
+
 };
 
 
